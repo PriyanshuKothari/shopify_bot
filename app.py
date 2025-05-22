@@ -10,6 +10,10 @@ CORS(app)
 @app.route('/generate-coupon', methods=['POST'])
 def handle_coupon():
     return generate_coupon()
+    
+@app.route('/ping', methods=['GET'])
+def ping():
+    return jsonify({"pong": True})
 
 @app.route('/sale-items', methods=['GET'])
 def handle_sale_items():
