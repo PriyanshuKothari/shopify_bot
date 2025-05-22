@@ -7,9 +7,16 @@ app = Flask(__name__)
 CORS(app)
 
 # === Routes ===
-@app.route('/generate-coupon', methods=['POST'])
-def handle_coupon():
-    return generate_coupon()
+# @app.route('/generate-coupon', methods=['POST'])
+# def handle_coupon():
+#     return generate_coupon()
+
+@app.route('/generate-coupon', methods=['GET', 'POST'])
+def generate_coupon():
+    if request.method == 'GET':
+        return jsonify({"success": True, "code": "LYVNTESTGET"})
+    if request.method == 'POST':
+        return jsonify({"success": True, "code": "LYVNDEBUG"})
     
 @app.route('/ping', methods=['GET'])
 def ping():
