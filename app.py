@@ -2,7 +2,9 @@ from flask import Flask, request, jsonify
 from shopify_api import generate_coupon, get_sale_items, get_wishlist
 import os
 
+from flask_cors import CORS # type: ignore
 app = Flask(__name__)
+CORS(app)
 
 # === Routes ===
 @app.route('/generate-coupon', methods=['POST'])
